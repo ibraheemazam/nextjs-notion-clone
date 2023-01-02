@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
       <div>
         <Nav />
         <Component {...pageProps} />
-      </div>      
+      </div>
     </ThemeProvider>
   )
 }
