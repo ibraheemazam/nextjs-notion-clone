@@ -17,7 +17,8 @@ const Note = () => {
 export default Note
 
 export async function getServerSideProps({params, req, res}) {
-  const response = await fetch(`http://localhost:3000/api/note/${params.id}`)
+  console.log('URL YOOO', process.env.API_URL)
+  const response = await fetch(`${process.env.API_URL}/api/note/${params.id}`)
 
   if (!response.ok) {
     res.writeHead(302, { Location: '/notes' })
@@ -26,8 +27,8 @@ export async function getServerSideProps({params, req, res}) {
   }
 
   const {data} = await response.json()
-  
-  
+
+
   if (data) {
     return {
       props: {note: data}
